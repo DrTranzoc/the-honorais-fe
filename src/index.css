@@ -1,0 +1,17 @@
+* {
+  font-family: "Geliat-light";
+}
+
+*::-webkit-scrollbar {
+  width: 10px; /* width of the scrollbar */
+  background-color: #535353; /* background color of the scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #949494; /* color of the scrollbar thumb */
+  border-radius: 5px; /* roundness of the scrollbar thumb */
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}

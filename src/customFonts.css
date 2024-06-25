@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "SharpGrotesk";
+  src: url("./assets/font/SharpGrotesk-Light20.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SharpGroteskBook25";
+  src: url("./assets/font/SharpGrotesk-Book25.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SharpGroteskSemiBold25";
+  src: url("./assets/font/SharpGrotesk-SemiBold25.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geliat-light";
+  src: url("./assets/font/Geliat-ExtraLight.otf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geliat-bold";
+  src: url("./assets/font/Geliat-ExtraBold.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geliat-bold";
+  src: url("./assets/font/Geliat-ExtraBold.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gang-of-three";
+  src: url("./assets/font/go3v2.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
