@@ -58,7 +58,6 @@ const Home = () => {
           }
           
           if(e.id.startsWith("gallery-middle-text")) {
-            console.log(e.id , isElementVisible(e, 100));
             if(isElementVisible(e, 10)){
               e.style.opacity = 1;
               e.style.fontSize = "2rem"

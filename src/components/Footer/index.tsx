@@ -21,7 +21,7 @@ const footerLinks = [
   },
   {
     name: "Team",
-    href: "#",
+    href: "/team",
   },
 ];
 
@@ -72,7 +72,6 @@ const Footer = () => {
           style={{ justifyContent: "right", marginRight: "24px" }}
         >
           {socialIcon.map((icon, index) => (
-            <>
               <SocialIcon
                 onClick={() => window.open(icon.link, "_blank")}
                 key={`social-${index}`}
@@ -80,7 +79,6 @@ const Footer = () => {
               >
                 {icon.icon}
               </SocialIcon>
-            </>
           ))}
         </FooterRow>
       </Main_Footer>

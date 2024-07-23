@@ -3,10 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   NavBarMain,
-  SearchBar,
-  SearchDiv,
   NavLink,
-  WalletButton,
   NavBarExpanded,
   MainContainer,
 } from "./NavBarStyled";
@@ -22,10 +19,14 @@ import RoadmapIcon from "../../assets/icons/svg/road-map-icon.svg?react";
 import NavDiscoverIcon from "../../assets/icons/svg/nav-discover.svg?react";
 import NavJoystickIcon from "../../assets/icons/svg/joystick-svgrepo-com.svg?react";
 import UserProfileIcon from "../../assets/icons/svg/user-icon.svg?react";
+import WalletManager from "./wallet-manager";
+
+import UserIcon from "../../assets/icons/svg/user-icon.svg?react";
 
 const NavBar = () => {
   const { themeContext, switchTheme } = useContext(HonoraisContext);
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+  const [address , setAddress] = useState("");
 
   const toggleMenu = () => {
     setIsMenuExpanded((prev) => {
@@ -62,6 +63,10 @@ const NavBar = () => {
     }
   ];
 
+  const isWalletConnected = () => {
+    return window.localStorage.getItem("wallet");
+  }
+
   return (
     <MainContainer current_theme={themeContext.theme}>
       <NavBarMain
@@ -88,17 +93,15 @@ const NavBar = () => {
         <div className="nav-center">
           {navLinks.map((val, idx) => {
             return (
-              <>
-                <div key={`menu-link-${idx}`} className="nav-link-block">
-                  {val.icon}
-                  <NavLink
-                    href={`/${val.path.toLowerCase().replace(" ", "")}`}
-                    current_theme={themeContext.theme}
-                  >
-                    {val.path}
-                  </NavLink>
-                </div>
-              </>
+              <div key={`menu-link-${idx}`} className="nav-link-block">
+                {val.icon}
+                <NavLink
+                  href={`/${val.path.toLowerCase().replace(" ", "")}`}
+                  current_theme={themeContext.theme}
+                >
+                  {val.path}
+                </NavLink>
+              </div>
             );
           })}
         </div>
@@ -112,26 +115,32 @@ const NavBar = () => {
             }
             onClick={() => switchTheme()}
           ></img>
+          {
+            isWalletConnected() ? 
+              <UserIcon className="user-profile-icon" onClick={() => window.location.href = "/profile"}></UserIcon> 
+            : null
+          }
+          {!isMenuExpanded ? 
+          <WalletManager isMenuExpanded={isMenuExpanded}>CONNECT</WalletManager> : null }
         </div>
       </NavBarMain>
       {isMenuExpanded ? (
         <NavBarExpanded current_theme={themeContext.theme}>
+          <WalletManager isMenuExpanded={isMenuExpanded}>CONNECT</WalletManager>
           {navLinks.map((val, idx) => {
             return (
-              <>
-                <div
-                  key={`responsive-menu-link-${idx}`}
-                  className="nav-link-block"
+              <div
+                key={`responsive-menu-link-${idx}`}
+                className="nav-link-block"
+              >
+                {val.icon}
+                <NavLink
+                  href={`/${val.path.toLowerCase()}`}
+                  current_theme={themeContext.theme}
                 >
-                  {val.icon}
-                  <NavLink
-                    href={`/${val.path.toLowerCase()}`}
-                    current_theme={themeContext.theme}
-                  >
-                    {val.path}
-                  </NavLink>
-                </div>
-              </>
+                  {val.path}
+                </NavLink>
+              </div>
             );
           })}
         </NavBarExpanded>

@@ -20,6 +20,16 @@ const MainContainer = styled.div<ThemeProps>`
   flex-direction: column;
   overflow-x: hidden;
 
+  & .user-profile-icon {
+    width : 24px;
+    height : 24px;
+    fill : white;
+    cursor: pointer;
+    & path {
+      fill : ${(props) => themesPalette[props.current_theme].text["200"]};
+    }
+  }
+
   & .banner {
     background: linear-gradient(
       90deg,
@@ -295,6 +305,9 @@ const WalletButton = styled.div<ThemePropsExtended>`
     cursor: default;
     @media screen and (max-width: 820px) {
       transform: translate(-50%, -250%);
+    }
+    @media screen and (max-width: 820px) and (max-height : 800px) {
+      transform: translate(-50%, -150%);
     }
     & .exit-wallet-submenu {
       width: max-content;

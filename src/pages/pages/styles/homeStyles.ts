@@ -290,6 +290,7 @@ const HomeMain = styled.div<ThemeProps>`
                 justify-content : center;
                 align-items : center;
                 flex-direction : column;
+                width : 85%;
                 & .text-image {
                     float : unset;
                     width : 320px;
@@ -299,6 +300,10 @@ const HomeMain = styled.div<ThemeProps>`
                     float : unset;
                     width : 320px;
                     height: 320px;
+                }
+                & p {
+                    font-size : 1.45rem;
+                    text-align:left;
                 }
             }
             & #banner-title {

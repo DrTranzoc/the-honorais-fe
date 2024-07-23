@@ -18,6 +18,8 @@ import Team from "./pages/pages/team";
 import Lore from "./pages/pages/lore";
 import GameFi from "./pages/pages/gamefi";
 import Roadmap from "./pages/pages/roadmap";
+import Profile from "./pages/pages/profile";
+import { retrieveWalletAddress } from "./scripts/wallet-handler";
 
 export const HonoraisContext = createContext({
   themeContext: { theme: "dark" as keyof ThemesPalette },
@@ -47,7 +49,12 @@ function App() {
     if (theme_preference) {
       setThemeContext(JSON.parse(theme_preference));
     }
+    verifyWalletChanges();
   }, []);
+
+  const verifyWalletChanges = async () => {
+    await retrieveWalletAddress()
+  }
 
   useEffect(() => {
     document.getElementById("root")!.style.backgroundColor =
@@ -79,6 +86,7 @@ function App() {
               <Route path="/lore" element={<Lore />} />
               <Route path="/gamefi" element={<GameFi />} />
               <Route path="/roadmap" element={<Roadmap />} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>
           <Footer></Footer>
